@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+<!--  -->
+{% block styles %}
+<link href="/dialog_error.css" rel="stylesheet" />
+{% endblock %}
+
+<!--  -->
+{% block page_content %}
+<div class="panel">
+
+<div class="dialog">
+    <div class="content">
+        <span>确认删除"{{stu_name}}"的学生数据?</span>
+    </div>
+    <div class="footer">
+        <div class="btn">
+            <form
+                action="/views/student/delete/{{stu_sn}}/{{stu_no}}/{{stu_name}}"
+                method="post"
+            >
+                <input type="submit" value="删除" />
+            </form>
+        </div>
+        <div class="btn">
+            <a href="/student">返回</a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+

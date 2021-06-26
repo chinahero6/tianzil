@@ -1,0 +1,49 @@
+{% extends "student.html" %}
+
+{% block styles %}
+    <link href="/student_list.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page_content %}
+<div class="paper">
+    <form class="grade-form" action="/action/select_student/add/{{b}}" method="post">
+        
+        <label>课程：</label>
+        <select name="cou_sn">
+            <option value="">--选择--</option>
+            {% for item in courses %}
+
+            <option value="{{item.cou_sn}}">
+                {{item.cou_name}}({{item.cou_no}})第{{item.cou_no[1]}}周.第{{item.cou_no[3]}}大节
+            </option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="添加选课" />
+    </form>
+    <hr />
+    <table>
+        <tr>
+            <th>课程</th>
+            <th>学生</th>
+            <th>操作</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.cou_name }}{{ item.cou_no }}</td>
+            <td>{{ item.stu_name }}</td>
+            <td>
+                <div class="ctrlbar">
+                    <div class="btn">
+                        <a href="/select/delete/{{item.stu_sn}}/{{item.cou_sn}}">
+                            删除
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

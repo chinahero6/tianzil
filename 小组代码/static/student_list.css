@@ -1,0 +1,116 @@
+
+
+
+form.grade-form > input, form.grade-form > select {
+    padding: 5px;
+    font-size: 2em;
+}
+
+form.grade-form> select {
+    min-width: 5em;
+}
+
+table.v {    
+    margin: center;
+}
+
+div>{
+    left: 30%;
+    margin: center;
+}
+th,
+td {
+  
+    text-align:center;
+}
+
+tr {
+    position: relative;
+    left: 300px;
+    top: 20px;
+    line-height: 1.5;
+}
+tr.st {
+    position: relative;
+    left: 300px;
+    width:150px;
+    line-height: 1.5;
+}
+tr.ss>th{
+    background-color: rgb(250, 179, 244);
+    color: rgb(0, 0, 0);
+    line-height: 1.5;
+    width:150px;
+    padding: 5px;
+}
+tr>th.ssr{
+    background-color: rgb(250, 179, 244);
+    color: rgb(0, 0, 0);
+    line-height: 5;
+    
+}
+tr.ssr>th{
+    background-color: rgb(255, 78, 240);
+    color: rgb(0, 0, 0);
+    line-height: 2;
+    width:200px;
+}
+tr.ssr>th.ssr{
+    background-color: rgb(250, 179, 244);
+    color: rgb(0, 0, 0);
+    line-height: 2;
+    width:2px;
+}
+tr.ssr>th.a{
+    background-color: rgb(250, 179, 244);
+    color: rgb(0, 0, 0);
+    line-height: 2;
+    width:20px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(253, 215, 247);
+
+}
+
+tr:nth-child(odd) {
+    background-color: #fddede;
+    line-height: 2.5;
+}
+
+tr:first-child {
+    background-color: rgb(119, 119, 119);
+    color: rgb(235, 235, 235);
+    line-height: 1.5;
+}
+
+tr:hover:not(:first-child) {
+    background-color: hsl(60 100% 100%);
+}
+
+.ctrlbar {
+    display: flex;
+    padding: 0 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.ctrlbar > .btn {
+    padding: 5px 3px;
+    background-color: rgb(1, 77, 163);
+}
+
+div.v {
+    flex: 1 1;
+    display: flex;
+}
+div.v > table.s {
+    flex: 0 0 12rem;
+    background-color: hsl(307 38% 85%);
+}
+
+div.v > table.p {
+    flex: 1 1;
+    background-color: hsl(307 38% 90%);
+    right: 0%;
+}

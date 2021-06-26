@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link href="/grade_list.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page_content %}
+<div class="paper">
+    <form class="grade-form" action="/action/select/add" method="post">
+        
+
+        <label>课程：</label>
+        <select name="cou_sn">
+            <option value="">--选择--</option>
+            {% for item in courses %}
+            <option value="{{item.cou_sn}}">
+                {{item.cou_name}}({{item.cou_sn}})
+            </option>
+            {% endfor %}
+        </select>
+        <label>学生：</label>
+        <select name="stu_sn">
+            <option value="">--选择--</option>
+            {% for stu in students %}
+            <option value="{{stu.stu_sn}}">
+                {{stu.stu_name}}({{stu.stu_sn}})
+            </option>
+            {% endfor %}
+        </select>
+        <label>学期：</label>
+        <select name="t">
+            <option value="">--选择--</option>
+            <option value="1">2020年--2021年下学期</option>
+            <option value="2">2020年--2021年上学期</option>
+            <option value="3">2019年--2020年下学期</option>
+            <option value="4">2019年--2020年上学期</option>
+        </select>
+        <input type="submit" value="添加选课" />
+    </form>
+    <hr />
+    <table>
+        <tr>
+            <th>课程</th>
+            <th>学生</th>
+            <th>操作</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.cou_name }}</td>
+            <td>{{ item.stu_name }}</td>
+            <td>
+                <div class="ctrlbar">
+                    <div class="btn">
+                        <a href="/select/delete/{{item.stu_sn}}/{{item.cou_sn}}">
+                            删除
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

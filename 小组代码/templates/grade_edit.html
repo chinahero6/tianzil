@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block styles %}
+<link href="/dialog_error.css" rel="stylesheet" />
+{% endblock %}
+
+<!--  -->
+{% block page_content %}
+<div class="content">
+    <form action="/action/grade/edit/{{stu_sn}}/{{cou_sn}}" method="post">
+        成绩：<input type="text" name="grade" value="{{grade}}" />
+        <input class="btn" type="submit" value="修改" />
+    </form>
+    <hr />
+    <a href="/grade" class="btn"> 回到成绩列表 </a>
+</div>
+{% endblock %}

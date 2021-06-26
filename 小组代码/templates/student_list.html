@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link href="/student_list.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page_content %}
+<div class="paper">
+    
+    <hr />
+    <table >
+        
+        <tr>
+            <th>序号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>入学时间<th>
+            <th>操作<th>
+        </tr>
+        <tr class="ss">
+            <form class="student-form" action="/student/add" method="post">
+                <th>
+                    <input type="text" name="stu_sn" />
+                    
+                </th>
+                <th>
+                    <input type="text" name="stu_no" />
+                </th>
+                <th>
+                    <input type="text" name="stu_name" />
+                </th>
+                <th>
+                    <select name="stu_gender">
+                        <option value="">--选择--</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                        
+                    </select>
+                </th>
+                <th>
+                    <input type="text" name="stu_enrolled" />
+                </th>
+                <th></th>
+                <th>
+                <input type="submit" value="添加学生"  /> 
+                <th>
+            </form>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.stu_sn }}</td>
+            <td>{{ student.stu_no }}</td>
+            <td>{{ student.stu_name }}</td>
+            <td>{{ student.stu_gender }}</td>
+            <td>{{ student.stu_enrolled }}</td>
+            <td></td>
+            
+            <td>
+                <div class="ctrlbar">
+                    <div class="btn">
+                        <a href="/student/edit/{{student.stu_sn}}/{{student.stu_no}}/{{student.stu_name}}/{{student.stu_gender}}">
+                            修改
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a href="/student/delete/{{student.stu_sn}}/{{student.stu_no}}/{{student.stu_name}}">
+                            删除
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    
+</div>
+{% endblock %}

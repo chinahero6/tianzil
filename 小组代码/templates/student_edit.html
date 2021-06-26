@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<!--  -->
+
+{% block styles %}
+<link href="/dialog_error.css" rel="stylesheet" />
+{% endblock %}
+
+<!--  -->
+{% block page_content %}
+<div class="content">
+    <form action="/views/student/edit/{{stu_sn}}/{{stu_no}}/{{stu_name}}/{{stu_gender}}" method="post">
+        序号：<input  name="stu_sn" value="{{stu_sn}}" />
+        学号：<input type="text" name="stu_no" value="{{stu_no}}" />
+        姓名：<input type="text" name="stu_name" value="{{stu_name}}" />
+        性别：<select name="stu_gender">
+            <option value="">--选择--</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+            </select>
+        <input class="btn" type="submit" value="修改" />
+    </form>
+    <hr />
+    <a href="/student" class="btn"> 回到学生列表 </a>
+</div>
+{% endblock %}

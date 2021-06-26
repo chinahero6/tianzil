@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>成绩管理</title>
+        <link href="/components.css" rel="stylesheet" />
+        <link href="/base.css" rel="stylesheet" />
+        {% block styles %}{% endblock%}
+    </head>
+
+    <body>
+        <div class="page-head">
+            <img class="logo" src="/logo_256.png" />
+            <div class="title">成绩管理系统</div>
+            <!-- <img class="logo1" src="/head.jpg" />
+            <img class="logo2" src="/pic .png" /> -->
+        </div>
+        <div class="page-body">
+            <div class="sidebar">
+                <ul>
+                    <li {% if location.pathname.startswith("/student") %}active{% endif %}>
+                        <a href="/student">学生</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/teacher") %}active{% endif %}>
+                        <a href="/teacher">教师</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/courses") %}active{% endif %}>
+                        <a href="/courses">课程</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/select") %}active{% endif %}>
+                        <a href="/select">选课</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/grade") %}active{% endif %}>
+                        <a href="/grade">成绩单</a>
+                    </li>
+                    <li></li>
+                    <li {% if location.pathname.startswith("/") %}active{% endif %}>
+                        <a href="/">返回</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="page-content">
+                {% block page_content %}{% endblock %}
+                <div class="page-footer">&copy;天津工业大学 2021</div>
+            </div>
+        </div>
+    </body>
+</html>

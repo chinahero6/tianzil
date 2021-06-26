@@ -1,0 +1,41 @@
+/* .wawa{
+    background-image: url(tj.JPG);
+
+    background-size: cover; */
+
+.a{
+    position: absolute;
+    left: 40%;
+    top: 8%;
+    font-size: 50px;
+    color: #71246b;
+}
+table{
+    width: center;
+}
+/* .ccc{
+    margin-top: 20px;
+
+
+    height: 60px;
+
+    line-height: 60px;   
+
+    display: inline-block;
+   outline: none;
+    
+} */
+
+
+.lv{
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    font-size: 30px;
+    color: blueviolet;
+}
+
+
+.op{position:relative;
+right: 21%;
+top: 20%;}

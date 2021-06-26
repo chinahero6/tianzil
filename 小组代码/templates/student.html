@@ -1,0 +1,129 @@
+<html>
+    <head>
+        {% for item in students %}
+        <title>欢迎{{item.name }}同学</title>
+        <link href="/student_list.css" rel="stylesheet" />
+        <link href="/base.css" rel="stylesheet" />
+        {% block styles %}{% endblock%}
+    </head>
+
+    <body>
+        <div class="page-head">
+            <img class="logo" src="/logo_256.png" />
+            <div class="title">欢迎{{item.name}}同学进入教务系统</div>
+            <!-- <img class="logo1" src="/head.jpg" />
+            <img class="logo2" src="/pic .png" /> -->
+            {% endfor %}
+        </div>
+        <div class="page-body">
+            <div class="sidebar">
+                <ul>
+                    <li {% if location.pathname.startswith("/student/{user}") %}active{% endif %}>
+                        <a href="/login">学生</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/student/select/{{user}}") %}active{% endif %}>
+                    <a href="/student/select/{{user}}">选课</a>
+                    </li>
+                    <li {% if location.pathname.startswith("/") %}active{% endif %}>
+                        <a href="/">返回</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="page-content">
+          
+                <table >
+                    
+                    <tr>
+                        <th>序号</th>
+                        <th>学号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>入学时间<th>
+                    </tr>
+                    <tr class="ss">
+                        {% for item in students %}
+                        <form class="student-form" action="/student/add" method="post">
+                            <th>
+                                {{item.sn}}
+                            </th>
+                            <th>
+                                {{item.no}}
+                            </th>
+                            <th>
+                                {{item.name}}
+                            </th>
+                            <th>
+                                {{item.gender}}
+                            </th>
+                            <!-- <th>
+                                {{item.gender}}
+                            </th> -->
+                            <th></th>
+                        </form>
+                        {% endfor %}
+                    </tr>
+                </table>
+                {% block page_content %}
+                <form class="grade-form" action="/student01/{{user}}" method="post">
+           
+                        <select name="t">
+                        <option value="">--学年--</option>
+                        <option value="-1">2020年--2021年下学期</option>
+                        <option value="-2">2020年--2021年上学期</option>
+                        <option value="-3">2019年--2020年下学期</option>
+                        <option value="-4">2019年--2020年上学期</option>
+                    </select>
+                    <input type="submit" value="查找" />
+                </form>
+                <table class='v'>
+                
+                    <tr class='ssr'>
+                        <th></th>
+                        <th class='ssr'></th>
+                        <th>周一</th>
+                        <th>周二</th>
+                        <th>周三</th>
+                        <th>周四</th>
+                        <th>周五</th>
+                        <th>周六</th>
+                        <th>周日</th>
+                    </tr>
+                  
+                    {% for i in a %}
+                    <tr class="st">
+                        <th class='ssr'>第{{i[0]}}大节</th>
+                        {% for j in i %}
+                            <th>
+                                {{j.cou_name}}
+                            </th>
+                
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+                <tr>
+           
+                 
+                 
+                </tr>
+                <table class='v'>
+                <th>课程</th>
+                <th>成绩</th>
+                {% for grade in grades %}
+                <tr >
+                    <th>{{ grade.cou_name }}</th>
+                    <th>{{ grade.grade }}</th>
+                </tr>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                <div class="page-footer">&copy;天津工业大学 2021</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+    

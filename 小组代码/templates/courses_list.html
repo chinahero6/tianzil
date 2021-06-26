@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    <link href="/grade_list.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page_content %}
+<div class="paper">
+    <form class="courses-form" action="/course/add" method="post">
+        
+        <label>序号：</label>
+        <input type="text" name="sn" />
+
+        <label>课程：</label>
+        <input type="text" name="name" />
+
+        <label>时间：</label>
+        <select name="a">
+            <option value="">--选择--</option>
+            <option value="1">周一</option>
+            <option value="2">周二</option>
+            <option value="3">周三</option>
+            <option value="4">周四</option>
+            <option value="5">周五</option>
+            <option value="6">周六</option>
+            <option value="7">周日</option>
+        </select>
+
+        <select name="b">
+            <option value="">--选择--</option>
+            <option value="1">第一大节</option>
+            <option value="2">第二大节</option>
+            <option value="3">第三大节</option>
+            <option value="4">第四大节</option>
+            <option value="5">第五大节</option>
+        </select>
+        <input type="submit" value="添加课程" />
+    </form>
+    <hr />
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>课程号</th>
+            <th>课程名</th>
+            <th>时间</th>
+            <td>操作</td>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course.cou_sn }}</td>
+            <td>{{ course.cou_no }}</td>
+            <td>{{ course.cou_name }}</td>
+            <td> 周{{course.cou_no[1]}}  第{{course.cou_no[3]}}大节</td>
+
+            <td>
+                <div class="ctrlbar">
+                    <!-- <div class="btn">
+                        <a href="/course/edit/{{course.cou_sn}}/{{course.cou_no}}/{{course.cou_name}}">
+                            修改
+                        </a>
+                    </div> -->
+                    <div class="btn">
+                    <a href="/courses/delete/{{course.cou_sn}}/{{course.cou_no}}/{{course.cou_name}}">
+                            删除
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+      
+    </table>
+</div>
+{% endblock %}

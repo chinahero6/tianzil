@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+
+{% block styles %}
+    <link href="/student_list.css" rel="stylesheet" />
+{% endblock %}
+
+
+{% block page_content %}
+<div class="paper">
+    
+    <hr />
+    <table >
+        
+        <tr>
+            <th>序号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>入学时间<th>
+            <th>操作<th>
+        </tr>
+        <tr class="ss">
+            <form class="student-form" action="/student/add" method="post">
+                <th>
+                    <input type="text" name="stu_sn" />
+                    
+                </th>
+                <th>
+                    <input type="text" name="stu_no" />
+                </th>
+                <th>
+                    <input type="text" name="stu_name" />
+                </th>
+                <th>
+                    <select name="stu_gender">
+                        <option value="">--选择--</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                        
+                    </select>
+                </th>
+                <th>
+                    <input type="text" name="stu_enrolled" />
+                </th>
+                <th></th>
+                <th>
+                <input type="submit" value="添加学生"  /> 
+                <th>
+            </form>
+        </tr>
+        {% for teacher in teachers %}
+        <tr>
+            <td>{{ teacher.sn }}</td>
+            <td>{{ teacher.no }}</td>
+            <td>{{ teacher.name }}</td>
+            <td>{{ teacher.gender }}</td>
+            <td>{{ teacher.college }}</td>
+            <td></td>
+            
+            <td>
+                <div class="ctrlbar">
+                    <div class="btn">
+                        <a href="">
+                            修改
+                        </a>
+                    </div>
+                    <div class="btn">
+                        <a href="">
+                            删除
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+    
+</div>
+{% endblock %}
